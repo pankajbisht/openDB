@@ -1,6 +1,26 @@
 # OpenDB is utility to manage local data base or session storage 
 
-# Use of local and session storage
+# Use of local and session storage with simple example 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+  <script src="opendb.js"></script> <!-- import js file -->
+  <script>
+    (function () {
+      //Working is a methode to find your browser support localstorage or session storage if supported then you will get true and otherwise false
+      
+      console.log(db.working());  // true means you can work on it
+    }());
+  </script>
+</body>
+</html>
+
+
+
 
 # Main db object method
 working --> check local storage and session storage working on your system
