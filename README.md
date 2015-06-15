@@ -1,12 +1,12 @@
-# openDB is utility to manage local data base or session storage 
+# OpenDB is utility to manage local data base or session storage 
 
-# use of local and session storage
+# Use of local and session storage
 
-# main db object method
+# Main db object method
 working --> check local storage and session storage working on your system
 
 
-#main db object objects
+# Main db object objects
 
 local --> Contain localStorage methods
 
@@ -19,11 +19,11 @@ test --> Contain testing methods
 How to Use This Js
 ===================
 
-# if you are using local storage
+# If you are using local storage
 
 db.local.methodname
 
-# if you are using session storage
+# If you are using session storage
 
 db.session.methodname 
 
