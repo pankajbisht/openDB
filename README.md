@@ -3,24 +3,28 @@
 # Use of local and session storage with simple example 
 
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-    </head>
+
+<html lang="en">
+
+  <head>
+  </head>
+
     <body>
+
       <script src="opendb.js"></script>
+
       <script>
 
-      (function () {
+        (function () {
 
-        //Working is a methode to find your browser support localstorage or session storage if supported then you will get true and otherwise false
-      
-        console.log(db.working());  // true means you can work on it
+          //Working is a methode to find your browser support localstorage or session storage if supported then you will get true and otherwise false
+    
+          console.log(db.working());  // true means you can work on it
 
-      }());
-
-    </script>
+        }());
+      </script>
     </body>
-  </html>
+</html>
 
 
 
