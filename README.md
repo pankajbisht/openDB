@@ -19,16 +19,16 @@ test --> Contain testing methods
 How to Use This Js
 ===================
 
-# if u are using local storage
+# if you are using local storage
 
 db.local.methodname
 
-# if u are using session storage
+# if you are using session storage
 
 db.session.methodname 
 
 
-Local and Session storage method lis
+Local and Session storage method list
 ====================================
 
 set --> set storage
