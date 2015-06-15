@@ -12,7 +12,7 @@
 
 <body>
 
-  <script src="opendb.js"></script> <!-- import js file -->
+  <script src="opendb.js"></script>
 
   <script>
 
