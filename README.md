@@ -1,7 +1,8 @@
-What is OpenDB ?
+# What is OpenDB ?
 OpenDB is utitlity to manage local, session, cookie in browser.
 
-Use of local and session storage with simple example
+#Use of local and session storage with simple example
+
 <!DOCTYPE html>
 <html lang="en">
 <head></head>
