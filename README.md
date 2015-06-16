@@ -5,11 +5,11 @@ OpenDB is utitlity to manage local, session, cookie in browser.
 
 <!DOCTYPE html>
 
-<html lang="en">
+    <html lang="en">
 
-<head></head>
+    <head></head>
 
-<body>
+    <body>
 
 	<script src="opendb.js"></script>
 
