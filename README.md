@@ -46,12 +46,12 @@ test  -  Contain testing methods
 type – Chech type of value
 
 
-#Local Storage - 
+#Local Storage
 
 Stores data with no expiration date
 
 
-#Session Storage - 
+#Session Storage
 
 Stores data for one session (data is lost when the tab is closed)
 
