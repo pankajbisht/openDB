@@ -3,7 +3,7 @@ OpenDB is utitlity to manage local, session, cookie in browser.
 
 #Use of local and session storage with simple example
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
     <html lang="en">
 
