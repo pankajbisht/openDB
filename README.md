@@ -7,7 +7,7 @@ OpenDB is utitlity to manage local, session, cookie in browser.
 
     <html lang="en">
 
-    <head></head>
+    <head><title>OpenDB</title></head>
 
     <body>
 
