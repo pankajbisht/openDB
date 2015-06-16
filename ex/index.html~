@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>openDB</title>
+    <meta charset="UTF-8" />
+    <meta name="name" content="content" />
+    <style>
+        .row {
+            padding: 10px;
+        }
+        
+        #name {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<p class="row">
+    At the starting your storage has no value after fill form and submit the form your      storage is set now you can see the change and if you reload the page value is received from local db.
+</p>
+
+<div class="row">
+    <p>Your name was: <span id="name">Local storage is Empty</span></p>
+</div>
+
+<form name="form">
+    <div class="row">
+        <label>Name:</label>
+        <input type="text" placeholder="Enter the name" name="name"/>
+    </div>
+    <input type="submit" />
+</form>
+
+<script src="../opendb.js"></script>
+<script>
+    (function () {
+        var dom = document.getElementById("name");
+        var form = document.forms["form"];
+        var name = form["name"];
+
+        function sorry() {
+            alert("Not supported on your browser");
+        }
+
+        if (db.local.has("name")) {
+            dom.textContent = db.local.get("name");
+        }
+
+        form.onsubmit = function () {
+            var val = this["name"].value;
+
+            dom.textContent = val;
+
+            if (db.working()) {
+                db.local.set("name", val);
+            }  else { sorry(); }
+
+            return false;
+        };
+
+    }())
+</script>
+</body>
+</html>
