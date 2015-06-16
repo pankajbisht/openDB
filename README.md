@@ -24,58 +24,104 @@ OpenDB is utitlity to manage local, session, cookie in browser.
     		
   	</script>
   	
-</body>
-
+       </body>
 </html>
 
-Main db object method
+# Main db object method
+
 working() - checks local storage and session storage working on your system
 
-Main db object objects
+#Main db object objects
+
 local  -  Contain localStorage methods
+
 session  -  Contain seesionStorage methods
+
 cookie - Contain cookie methods
+
 test  -  Contain testing methods 
+
 type – Chech type of value
 
-Local Storage - Stores data with no expiration date
-Session Storage - Stores data for one session (data is lost when the tab is closed)
 
-If you are using local storage
+#Local Storage - 
+
+Stores data with no expiration date
+
+
+#Session Storage - 
+
+Stores data for one session (data is lost when the tab is closed)
+
+
+# If you are using local storage
 db.local.methodname
-If you are using session storage
+
+
+# If you are using session storage
 db.session.methodname 
 
-Local and Session storage method list
+
+# Local and Session storage method list
+
 set(key, value) – Sets storage
+
 get(key) - Get storage
+
 has(key) - Checks specified key name and return true or false
+
 remove(key) -  Removes specified key name
+
 clean() - Clean all keys from storage
+
 parse(jsonstring) - Parse Json string into javascript object
+
 string(object) - Convert Javascript Object  into Json string   
+
 setJSON(key, object) – Sets object into key in Json form
+
 getJSON(key) – Get json object as javascript object
+
 trim(key) – Get trim value of storage
+
 count() - Get totle length of storage
+
 key(index) – Get  specified index
+
 keys() - Get all keys
+
 setMore(object) – Sets js object into storage
+
 removeMore(array) – Removes array of keys
+
 getMore(array) – Get array of values of keys
+
 counter() - just for static counter 
+
 resetCounter() - reset the value of counter
+
 getVLStartWith(string, start, end) – Gets Array of value of key, which contain specified string
+
 getOBStartWith(string, start, end) – Gets Object of key value, which contain specified string
+
 entire() - Gets entire storage as js Object
 
-If you are using Cookie
+
+# If you are using Cookie
+
 db.cookie.methodname 
-Cookie method list
+
+
+# Cookie method list
+
 set(key, value, exdays) – Sets cookie value
+
 get(key) – Get cookie value
+
 has(key) - Checks specified key name and return true or false
+
 entire() - Gets entire cookie
 
-Type Method  
+# Type Method  
+
 type(value) – Gets type of value 
