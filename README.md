@@ -1,99 +1,71 @@
-# OpenDB is utility to manage local data base or session storage 
+What is OpenDB ?
+OpenDB is utitlity to manage local, session, cookie in browser.
 
-# Use of local and session storage with simple example 
-
+Use of local and session storage with simple example
 <!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+	<script src="opendb.js"></script>
+  	<script>
+    		(function () {
 
-    <html lang="en">
+      			// Working is a methode to find your browser support localstorage or session storage if supported then you will get true and otherwise false
 
-    <head>
-    </head>
+			console.log(db.working());  // true means you can work on it
+    		}());
+  	</script>
+</body>
+</html>
 
-    <body>
+Main db object method
+working() - checks local storage and session storage working on your system
 
-      <script src="opendb.js"></script>
+Main db object objects
+local  -  Contain localStorage methods
+session  -  Contain seesionStorage methods
+cookie - Contain cookie methods
+test  -  Contain testing methods 
+type – Chech type of value
 
-      <script>
+Local Storage - Stores data with no expiration date
+Session Storage - Stores data for one session (data is lost when the tab is closed)
 
-        (function () {
-
-          //Working is a methode to find your browser support localstorage or session storage if supported then you will get true and otherwise false
-    
-          console.log(db.working());  // true means you can work on it
-
-        }());
-      </script>
-    </body>
-    </html>
-
-
-
-
-# Main db object method
-working --> check local storage and session storage working on your system
-
-
-# Main db object objects
-
-local --> Contain localStorage methods
-
-session --> Contain seesionStorage methods
-
-test --> Contain testing methods  
-
-
-
-How to Use This Js
-===================
-
-# If you are using local storage
-
+If you are using local storage
 db.local.methodname
-
-# If you are using session storage
-
+If you are using session storage
 db.session.methodname 
 
-
 Local and Session storage method list
-====================================
+set(key, value) – Sets storage
+get(key) - Get storage
+has(key) - Checks specified key name and return true or false
+remove(key) -  Removes specified key name
+clean() - Clean all keys from storage
+parse(jsonstring) - Parse Json string into javascript object
+string(object) - Convert Javascript Object  into Json string   
+setJSON(key, object) – Sets object into key in Json form
+getJSON(key) – Get json object as javascript object
+trim(key) – Get trim value of storage
+count() - Get totle length of storage
+key(index) – Get  specified index
+keys() - Get all keys
+setMore(object) – Sets js object into storage
+removeMore(array) – Removes array of keys
+getMore(array) – Get array of values of keys
+counter() - just for static counter 
+resetCounter() - reset the value of counter
+getVLStartWith(string, start, end) – Gets Array of value of key, which contain specified string
+getOBStartWith(string, start, end) – Gets Object of key value, which contain specified string
+entire() - Gets entire storage as js Object
 
-set --> set storage
+If you are using Cookie
+db.cookie.methodname 
+Cookie method list
+set(key, value, exdays) – Sets cookie value
+get(key) – Get cookie value
+has(key) - Checks specified key name and return true or false
+entire() - Gets entire cookie
 
-get --> get storage
-
-count --> total length of store
-
-string --> convert object to string
-
-parse --> convert object string to object
-
-has --> check storage contain current key
-
-remove --> remove current key
-
-trim --> trim string
-
-setJSON --> set object to json format
-
-getJSON --> get string object as a js object
-
-counter --> static counter
-
-resetCounter --> reset counter
-
-keys --> get all keys
-
-key --> get current key
-
-flush --> clear entire db
-
-setMore --> set object value in storage
-
-getMore --> get array values
-
-removeMore --> remove array value from storage 
-
-getVLStartWith --> get keys values start with some basic pattern (like name1, name2)
-
-getOBStartWith --> get objects start with some basic pattern (like name1, name2)
+Type Method  
+type(value) – Gets type of value 
