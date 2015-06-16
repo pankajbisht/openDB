@@ -24,7 +24,8 @@ OpenDB is utitlity to manage local, session, cookie in browser.
     		
   	</script>
   	
-       </body>
+    </body>
+
 </html>
 
 # Main db object method
