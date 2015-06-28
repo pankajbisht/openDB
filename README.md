@@ -1,5 +1,5 @@
 # What is OpenDB ?
-OpenDB is utitlity to manage local, session, cookie in browser.
+OpenDB is utility to manage local, session, cookie in browser.
 
 # Browser Support
 The numbers in the table specify the first browser version that fully supports Local Storage.
