@@ -105,7 +105,7 @@ var Operation = function (storage) {
 
     counter = function () {
         var get = parseInt(this.get("counter"));
-        var val = get ? get : 0; 
+        var val = get ? get : 0;
 
         this.set("counter", ++val);
         return parseInt(this.get("counter"));
@@ -130,7 +130,7 @@ var Operation = function (storage) {
 
         while (len--) {
 
-            var key = this.key(i); //here    
+            var key = this.key(i); //here
 
             if (key.substring(start, end) === str) {
                 arr.push(this.get(key)); //here
@@ -265,9 +265,9 @@ var MyError = (function () {
 
     isValid = function () {
         var arg = arguments, len = arguments.length, first = arg[0], last = arg[len - 1];
-        
+
         console.info(arg[0]);
-        
+
         if (len === 2) {
             console.log(this.type(first) + "----" + last);
             if (this.type(first) === last) return true;
@@ -299,6 +299,65 @@ var Testing = (function () {
     };
 }());
 
+var WEBSQL = (function () {
+    var initDB,
+        createTable,
+        insertRow,
+        getRows,
+        deleteRows,
+        db,
+        err;
+
+    initDB = function (name, version, description, size) {
+
+        db = openDatabase(name, version, description, size);
+    };
+
+    createTable = function (query) {
+        db.transaction(function(tx) {
+            tx.executeSql(query, []);
+        });
+    };
+
+    insertRow = function (query, data, callback) {
+        db.transaction(function(tx){
+            tx.executeSql(query,
+                data,
+                callback,
+                err);
+        });
+    };
+
+    getRows = function (query, callback) {
+        db.transaction(function(tx){
+            tx.executeSql(query,
+                [],
+                callback,
+                err);
+        });
+    };
+
+    deleteRows = function (query, info, callback) {
+        db.transaction(function(tx){
+            tx.executeSql(query, info,
+                callback,
+                err);
+        });
+    } ;
+
+    err = function (tx, e) {
+        console.info("ERROR ::");
+        console.error("Error due to ::" + e.message);
+    };
+
+    return {
+        initDB: initDB,
+        createTable: createTable,
+        insertRow: insertRow,
+        getRows: getRows,
+        deleteRows: deleteRows
+    }
+}());
 
  var Main = (function () {
 
@@ -309,6 +368,7 @@ var Testing = (function () {
     superC.cookie = Cookie;
     superC.test = Testing;
     superC.type = MyError;
+    superC.websql = WEBSQL;
 
     superC.working = function () {
 
