@@ -8,7 +8,7 @@ Chrome – 4.0
 
 Ie – 8.0
 
-Mozila firefox – 3.5
+Mozilla firefox – 3.5
 
 Safari – 4.0
 
@@ -30,7 +30,7 @@ Opera – 11.5
 
     		(function () {
 
-      			// Working is a methode to find your browser support localstorage or session storage if supported then you will get true and otherwise false
+      			// Working is a method to find your browser support localstorage or session storage if supported then you will get true and otherwise false
 
 			console.log(db.working());  // true means you can work on it
     		}());
@@ -50,13 +50,13 @@ working() - checks local storage and session storage working on your system
 
 local  -  Contain localStorage methods
 
-session  -  Contain seesionStorage methods
+session  -  Contain sessionStorage methods
 
 cookie - Contain cookie methods
 
 test  -  Contain testing methods 
 
-type – Chech type of value
+type – Check type of value
 
 
 #Local Storage
