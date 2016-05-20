@@ -126,6 +126,17 @@ entire() - Gets entire storage as js Object
 
 db.cookie.methodname 
 
+# WebSQL method list
+
+db.websql.initDB(name, version, description, size)  - initialize database
+
+createTable(query) - websql query for crating table
+ 
+insertRow(query, data, callback) -  websql query for inserting data on table
+
+getRows(query, callback) - websql query for get rows of table
+
+deleteRows(query, info, callback) - websql query for delete rows of table
 
 # Cookie method list
 
