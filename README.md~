@@ -91,7 +91,7 @@ clean() - Clean all keys from storage
 
 parse(jsonstring) - Parse Json string into javascript object
 
-string(object) - Convert Javascript Object  into Json string
+string(object) - Convert Javascript Object  into Json string   
 
 setJSON(key, object) – Sets object into key in Json form
 
