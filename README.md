@@ -34,13 +34,13 @@ Opera – 11.5
 
 			console.log(db.working());  // true means you can work on it
     		}());
-    		
+
   	</script>
-  	
+
     </body>
 
     </html>
- 
+
 
 # Main db object method
 
@@ -54,12 +54,12 @@ session  -  Contain sessionStorage methods
 
 cookie - Contain cookie methods
 
-test  -  Contain testing methods 
+test  -  Contain testing methods
 
 type – Check type of value
 
 
-#Local Storage
+# Local Storage
 
 Stores data with no expiration date
 
@@ -74,7 +74,7 @@ db.local.methodname
 
 
 # If you are using session storage
-db.session.methodname 
+db.session.methodname
 
 
 # Local and Session storage method list
@@ -111,7 +111,7 @@ removeMore(array) – Removes array of keys
 
 getMore(array) – Get array of values of keys
 
-counter() - just for static counter 
+counter() - just for static counter
 
 resetCounter() - reset the value of counter
 
@@ -124,14 +124,14 @@ entire() - Gets entire storage as js Object
 
 # If you are using Cookie
 
-db.cookie.methodname 
+db.cookie.methodname
 
 # WebSQL method list
 
 db.websql.initDB(name, version, description, size)  - initialize database
 
 createTable(query) - websql query for crating table
- 
+
 insertRow(query, data, callback) -  websql query for inserting data on table
 
 getRows(query, callback) - websql query for get rows of table
@@ -150,4 +150,4 @@ entire() - Gets entire cookie
 
 # Type Method  
 
-type(value) – Gets type of value 
+type(value) – Gets type of value
