@@ -1,6 +1,6 @@
 /*
     Developer: Pankaj Bisht,
-    OpenDB is utitlity to manage local, session, cookie in browser.
+    OpenDB is utitlity to manage local, session, cookie in browser..
 */
 
 (function () {
@@ -386,4 +386,3 @@ var WEBSQL = (function () {
 
     window.db = Main;
 }());
-
