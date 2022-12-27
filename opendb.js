@@ -357,27 +357,27 @@
 
     var Main = (function () {
 
-    var superC = {}, local = localStorage, session = sessionStorage;
+    var odb = {}, local = localStorage, session = sessionStorage;
 
-    superC.local = Operation(local);
-    superC.session = Operation(session);
-    superC.cookie = Cookie;
-    superC.test = Testing;
-    superC.type = MyError;
-    superC.websql = WEBSQL;
+    odb.local = Operation(local);
+    odb.session = Operation(session);
+    odb.cookie = Cookie;
+    odb.test = Testing;
+    odb.type = MyError;
+    odb.websql = WEBSQL;
 
-    superC.working = function () {
+    odb.working = function () {
 
         try {
 
             return 'localStorage' in window && window['localStorage'] !== null;
         } catch (e) {
-            
+
             return false;
         }
     };
 
-    return superC;
+    return odb;
 }());
 
     window.db = Main;
