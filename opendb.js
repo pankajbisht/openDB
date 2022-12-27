@@ -6,7 +6,7 @@
 (function () {
     "use strict";
 
-    var Operation = function (storage) {
+    var Operations = function (storage) {
         var get, set, has, remove, clean, parse, string, setJSON, getJSON,
         trim, count, trim, key, setMore, removeMore, getMore, counter, resetCounter,
         keys, getVLStartWith, getOBStartWith, entire;
@@ -359,8 +359,8 @@
 
     var odb = {}, local = localStorage, session = sessionStorage;
 
-    odb.local = Operation(local);
-    odb.session = Operation(session);
+    odb.local = Operations(local);
+    odb.session = Operations(session);
     odb.cookie = Cookie;
     odb.test = Testing;
     odb.type = MyError;
