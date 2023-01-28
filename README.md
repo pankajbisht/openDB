@@ -72,10 +72,10 @@ Stores data for one session (data is lost when the tab is closed)
 For more details about local storage and session storage you can read article this article - 
 
 # Basic information about webstorage
-http://www.wayofwebs.com/html/webstorage/
+http://www.wayofwebs.com/javascript/js-webstorage/
 
 # Localstorage techniques 
-http://www.wayofwebs.com/javascript/local-storage-techniques/
+http://www.wayofwebs.com/javascript/js-local-storage-techniques/
 
 # If you are using local storage
 db.local.methodname
