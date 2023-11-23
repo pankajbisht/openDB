@@ -1,0 +1,20 @@
+{
+  "name": "opendb",
+  "version": "1.0.0",
+  "description": "OpenDB is a utility to manage local, sessions, and cookies in the browser.",
+  "main": "opendb.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pankajbisht/openDB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pankajbisht/openDB/issues"
+  },
+  "homepage": "https://github.com/pankajbisht/openDB#readme"
+}
