@@ -14,8 +14,8 @@ Safari – 4.0
 
 Opera – 11.5
 
-#Use of local and session storage with a simple example
-
+# Use of local and session storage with a simple example
+``````
 <!DOCTYPE html>
 <html lang="en">
 <head><title>OpenDB</title></head>
@@ -29,7 +29,7 @@ Opera – 11.5
 	</script>
 	</body>
 </html>
-
+``````
 
 # Main db object method
 
@@ -47,28 +47,27 @@ test  -  Contain testing methods
 
 type – Check the type of value
 
-
 # Local Storage
-
 Stores data with no expiration date
 
-
-#Session Storage
-
+# Session Storage
 Stores data for one session (data is lost when the tab is closed)
 
 
 For more details about local storage and session storage, you can read article this article - 
 
 # If you are using local storage
+``````
 db.local.methodname
-
+``````
 
 # If you are using session storage
+``````
 db.session.methodname
-
+``````
 
 # Local and Session storage method list
+``````
 
 set(key, value) – Sets storage
 
@@ -111,13 +110,16 @@ getVLStartWith(string, start, end) – Gets Array of value of the key, which con
 getOBStartWith(string, start, end) – Gets Object of key value, which contains specified string
 
 entire() - Gets entire storage as js Object
-
+``````
 
 # If you are using Cookie
+``````
 
 db.cookie.methodname
+``````
 
 # WebSQL method list
+``````
 
 db.websql.initDB(name, version, description, size)  - initialize database
 
@@ -128,9 +130,10 @@ insertRow(query, data, callback) -  websql query for inserting data on the table
 getRows(query, callback) - websql query for getting rows of the table
 
 deleteRows(query, info, callback) - websql query for deleting rows of the table
+``````
 
 # Cookie method list
-
+``````
 set(key, value, exdays) – Sets cookie value
 
 get(key) – Get cookie value
@@ -138,7 +141,9 @@ get(key) – Get cookie value
 has(key) - Checks specified key name and returns true or false
 
 entire() - Gets entire cookie
+``````
 
 # Type Method  
-
+``````
 type(value) – Gets the type of value
+``````
