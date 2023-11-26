@@ -3,12 +3,13 @@ OpenDB is a utility to manage local, sessions, and cookies in the browser.
 
 # Browser Support
 The numbers in the table specify the first browser version that fully supports Local Storage.
-
+``````
 Chrome – 4.0
 Ie – 8.0
 Mozilla Firefox – 3.5
 Safari – 4.0
 Opera – 11.5
+``````
 
 # Use of local and session storage with a simple example
 ``````
