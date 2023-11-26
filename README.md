@@ -5,13 +5,9 @@ OpenDB is a utility to manage local, sessions, and cookies in the browser.
 The numbers in the table specify the first browser version that fully supports Local Storage.
 
 Chrome – 4.0
-
 Ie – 8.0
-
 Mozilla Firefox – 3.5
-
 Safari – 4.0
-
 Opera – 11.5
 
 # Use of local and session storage with a simple example
@@ -83,13 +79,13 @@ parse(jsonstring) - Parse JSON string into a javascript object
 
 string(object) - Convert Javascript Object  into JSON string
 
-setJSON(key, object) – Sets object into key in JSON form
+setJSON(key, object) – Sets object into a key in JSON form
 
 getJSON(key) – Get JSON object as a javascript object
 
 trim(key) – Get trim value of storage
 
-count() - Get total length of storage
+count() - Get the total length of storage
 
 key(index) – Get  specified index
 
@@ -123,7 +119,7 @@ db.cookie.methodname
 
 db.websql.initDB(name, version, description, size)  - initialize database
 
-createTable(query) - websql query for creating table
+createTable(query) - websql query for creating a table
 
 insertRow(query, data, callback) -  websql query for inserting data on the table
 
