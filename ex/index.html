@@ -10,7 +10,6 @@
         #name { color: red; font-weight: bold; }
         blockquote { background: #f9f9f9;border-left: 5px solid #ccc;padding: 0.5em 10px;}
     </style>
-    <script type="module" src="../dist/bundle.js"></script>
 </head>
 <body>
 <blockquote>
@@ -28,38 +27,6 @@
         <input type="text" placeholder="Enter the name" name="name"/>
         <input type="submit" />
     </div>
-</form-->
-
-<!--<script src="../websql.js"></script>-->
-
-
-<!-- <script>
-    (function () {
-        var dom  = document.getElementById("name"),
-            form = document.forms["form"],
-            name = form["name"];
-
-        function sorry() {
-            alert("Not supported on your browser");
-        }
-
-        if (db.local.has("name")) {
-            dom.textContent = db.local.get("name");
-        }
-
-        form.onsubmit = function () {
-            var val = this["name"].value;
-
-            dom.textContent = val;
-
-            if (db.working()) {
-                db.local.set("name", val);
-            }  else { sorry(); }
-
-            return false;
-        };
-
-    }())
-</script> -->
+</form>
 </body>
 </html>

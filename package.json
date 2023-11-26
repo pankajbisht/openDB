@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "OpenDB is a utility to manage local, sessions, and cookies in the browser.",
   "main": "opendb.js",
-  "type": "module",
   "scripts": {
     "build": "webpack --config webpack.config.js --mode development",
     "dev": "webpack serve --mode development --open",
@@ -24,6 +23,7 @@
     "eslint": "^8.54.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.0",
+    "html-webpack-plugin": "^5.5.3",
     "rollup": "^4.5.2",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
