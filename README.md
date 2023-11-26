@@ -66,25 +66,45 @@ db.session.methodname
 ``````
 
 set(key, value) – Sets storage
+
 get(key) - Get storage
+
 has(key) - Checks specified key name and returns true or false
+
 remove(key) -  Removes specified key name
+
 clean() - Clean all keys from storage
+
 parse(jsonstring) - Parse JSON string into a javascript object
+
 string(object) - Convert Javascript Object  into JSON string
+
 setJSON(key, object) – Sets object into key in JSON form
+
 getJSON(key) – Get JSON object as a javascript object
+
 trim(key) – Get trim value of storage
+
 count() - Get total length of storage
+
 key(index) – Get  specified index
+
 keys() - Get all keys
+
 setMore(object) – Sets js object into storage
+
 removeMore(array) – Removes array of keys
+
 getMore(array) – Get an array of values of keys
+
 counter() - just for static counter
+
 resetCounter() - reset the value of the counter
+
 getVLStartWith(string, start, end) – Gets Array of value of the key, which contains the specified string
+
 getOBStartWith(string, start, end) – Gets Object of key value, which contains specified string
+
 entire() - Gets entire storage as js Object
 ``````
 
