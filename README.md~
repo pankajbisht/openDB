@@ -64,7 +64,7 @@ type – Chech type of value
 Stores data with no expiration date
 
 
-# ession Storage
+# Session Storage
 
 Stores data for one session (data is lost when the tab is closed)
 
