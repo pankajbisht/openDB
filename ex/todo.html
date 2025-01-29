@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style media="screen">
+      .page { padding: 20px;}
+      .list { padding: 0;list-style-type: none;}
+
+      .list li { padding: 6px 12px;border-bottom: 1px solid #e8e8e8; }
+      .bdr { background: hsla(360, 100%, 50%, 0.2); }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+        <h1>Your todo</h1>
+        <div class="">
+          <input type="text" name="name" value="" id="input">
+          <button type="button" name="button" id="add">Add</button>
+          <button type="button" name="button" id="delete">Delete</button>
+        </div>
+        <ul class="list" id="list"></ul>
+    </div>
+
+    <script src="../opendb.js"></script>
+    <script type="text/javascript">
+      var input     =  document.getElementById('input'),
+          add       =  document.getElementById('add'),
+          list      =  document.getElementById('list'),
+          pop    =  document.getElementById('delete'),
+          todoList  =  [];
+
+
+      if (db.local.has("opendbTodo")) {
+        todoList = db.local.getJSON("opendbTodo");
+        setData();
+      }
+
+
+      function setData(is) {
+          var li, textnode;
+
+          if (!is) {
+              var frag  = document.createDocumentFragment(),
+                  text  = "", textnode;
+
+              for (var i = 0, len = todoList.length; i < len; i++) {
+                text    = todoList[i];
+
+                li           = document.createElement("LI"),
+                textnode     = document.createTextNode(text);
+
+                li.appendChild(textnode);
+                frag.appendChild(li);
+            }
+
+            list.appendChild(frag);
+
+          } else {
+            li           = document.createElement("LI"),
+            textnode     = document.createTextNode(is);
+
+            li.appendChild(textnode);
+            list.appendChild(li);
+          }
+      }
+
+
+      function onClick() {
+        var self         = this,
+            todoListItem = input.value;
+
+            console.log(todoListItem && (todoList.join("$$$").indexOf(todoListItem) == -1));
+
+        if (todoListItem && (todoList.join("$$$").indexOf(todoListItem) == -1) ) {
+          todoList.push(todoListItem);
+
+          setData(todoListItem);
+
+          db.local.setJSON("opendbTodo", todoList);
+          input.classList.remove("bdr");
+        } else {
+          input.classList.add("bdr");
+        }
+      }
+
+      function onSelect(e) {
+        var target = e.target;
+
+        if (target.nodeName.match("LI")) {
+          console.log(target.classList);
+          target.classList.add("bdr");
+        }
+
+      }
+
+      function onDelete(argument) {
+        for (var len = list.children.length, i = len, tmp; i > 0; i--) {
+          tmp = list.children[i-1];
+
+
+
+          if (tmp.classList.contains("bdr")) {
+            list.removeChild(tmp);
+            todoList.splice(todoList.indexOf(i), 1);
+            input.classList.remove("bdr");
+          }
+        }
+
+        db.local.setJSON("opendbTodo", todoList);
+      }
+
+      add.addEventListener("click", onClick, false);
+      list.addEventListener("click", onSelect, false);
+      pop.addEventListener("click", onDelete, false);
+
+    </script>
+  </body>
+</html>
