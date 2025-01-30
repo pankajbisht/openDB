@@ -43,9 +43,9 @@ Supports modern browsers including Chrome, Firefox, Safari, and Edge.
 
 ## List of Local and Session Storage Methods
 ```
-* set(key, value) :-  stores data in local or session with a key and value
+- set(key, value) :-  stores data in local or session with a key and value
 
-* get(key) :- retrieve data from local or session by key.
+- get(key) :- retrieve data from local or session by key.
 
-* has(key) :- check whether a specified key exists in local or session
+- has(key) :- check whether a specified key exists in local or session
 ```
