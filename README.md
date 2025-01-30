@@ -30,14 +30,14 @@ Supports modern browsers including Chrome, Firefox, Safari, and Edge.
    <title>OpenDB</title>
 </head>
 <body>
-	<script src="opendb.js"></script>
-	<script>
-		(function () {
-		    db.local.set('name', 'openDB');
-			console.log(db.local.get('name'));
-		}());
-	</script>
-	</body>
+  <script src="opendb.js"></script>
+  <script>
+	(function () {
+	  db.local.set('name', 'openDB');
+	  console.log(db.local.get('name'));
+	}());
+  </script>
+</body>
 </html>
 ``````
 
