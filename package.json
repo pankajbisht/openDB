@@ -1,0 +1,34 @@
+{
+  "name": "opendb",
+  "version": "2.0.0",
+  "description": "A lightweight utility to manage browser storage (localStorage, sessionStorage, and cookies) with advanced features. Easily configure namespaces, key trimming, and data expiry.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js",
+    "build": "npm run build:dev && npm run build:prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pankajbisht/openDB.git"
+  },
+  "keywords": [
+    "opendb"
+  ],
+  "author": "Pankaj Bisht",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pankajbisht/openDB/issues"
+  },
+  "homepage": "https://github.com/pankajbisht/openDB#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.7",
+    "babel-loader": "^9.2.1",
+    "terser-webpack-plugin": "^5.3.11",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-merge": "^6.0.1"
+  }
+}

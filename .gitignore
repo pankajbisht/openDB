@@ -1,0 +1,12 @@
+# Node.js modules
+node_modules/
+
+# Build output
+#dist/
+#build/
+
+# NPM package-lock file
+package-lock.json
+
+# DS_Store
+.DS_Store
