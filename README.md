@@ -41,6 +41,15 @@ Supports modern browsers including Chrome, Firefox, Safari, and Edge.
 </html>
 ``````
 
+## Key Changes from the Old Approach
+- Powerful Method: Enhanced functionality.
+- ES6: Modern JavaScript features.
+- Modular: Reusable and maintainable code.
+- Namespacing: Organized and conflict-free.
+
+For further details, see the [old-approach](https://github.com/pankajbisht/openDB/tree/v1-opendb) documentation.
+
+
 ## List of Local and Session Storage Methods
 ```
 - set(key, value) :-  stores data in local or session storage with a key and value
