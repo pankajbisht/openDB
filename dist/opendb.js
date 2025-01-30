@@ -328,7 +328,6 @@ __webpack_require__.r(__webpack_exports__);
 function keys() {
   var keys = [];
   for (var index = 0; index < this.storage.length; index++) {
-    // let key = this.storage[index];
     keys.push(this.storage.key(index));
   }
   return keys;
@@ -375,8 +374,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ remove)
 /* harmony export */ });
+/* harmony import */ var _config_config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/config.js */ "./src/config/config.js");
+
 function remove(key) {
-  return this.storage.removeItem(key);
+  var seprator = (0,_config_config_js__WEBPACK_IMPORTED_MODULE_0__.getSeparator)();
+  var namespcaekey = "".concat((0,_config_config_js__WEBPACK_IMPORTED_MODULE_0__.getCurrentNamespace)()).concat(seprator).concat(key);
+  return this.storage.removeItem(namespcaekey);
 }
 
 /***/ }),
