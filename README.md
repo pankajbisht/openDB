@@ -22,7 +22,7 @@ db.session.methodname
 ## Browser Support
 Supports modern browsers including Chrome, Firefox, Safari, and Edge.
 
-## Demonstrating the use of localStorage and sessionStorage with a simple example.
+## Demonstrating LocalStorage and SessionStorage with an Example
 ``````
 <!DOCTYPE html>
 <html lang="en">
