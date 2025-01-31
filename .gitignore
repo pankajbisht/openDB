@@ -4,6 +4,10 @@ node_modules/
 # Build output
 #dist/
 #build/
+coverage/
+
+# file
+jest-report.html
 
 # NPM package-lock file
 package-lock.json
