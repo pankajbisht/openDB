@@ -17,7 +17,8 @@
     "jest": "jest",
     "lint:fix": "eslint \"src/**/*.js\" \"tests/*.js\" \"public/*.js\" --fix",
     "format": "prettier --write .",
-    "lint": "eslint \"src/**/*.js\" \"tests/*.js\" \"public/*.js\""
+    "lint": "eslint \"src/**/*.js\" \"tests/*.js\" \"public/*.js\"",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",

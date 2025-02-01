@@ -5,6 +5,13 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     "@semantic-release/git",
-    "@semantic-release/github"
+    [
+      "@semantic-release/github",
+      {
+        "createRelease": true,
+        "assets": ["dist/**"],
+        "labels": ["release-${nextRelease.version}"]
+      }
+    ]
   ]
 }
