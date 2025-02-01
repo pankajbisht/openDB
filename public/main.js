@@ -1,4 +1,4 @@
-import db from "../dist/opendb.js";
+import db from "../dist/opendb.esm.js"
 
 (function () {
   var dom = document.getElementById("name"),
