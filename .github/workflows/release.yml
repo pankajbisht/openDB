@@ -31,17 +31,17 @@ jobs:
       - name: Ensure dist folder exists
         run: mkdir -p dist
 
-      # Step 5: Ensure dist folder has correct permissions
-      - name: Ensure dist folder has correct permissions
-        run: chmod -R 777 dist
+      # Step 5: Verify if dist folder exists before build
+      - name: Verify dist folder before build
+        run: ls -la dist || echo "dist folder does not exist"
 
       # Step 6: Run Rollup build
       - name: Run Rollup Build
         run: npm run build:rollup
 
-      # Step 7: Check if dist files exist
-      - name: Check if dist files exist
-        run: ls -la dist
+      # Step 7: Verify if build files are generated
+      - name: Verify dist folder after build
+        run: ls -la dist || echo "dist folder is still empty"
 
       # Step 8: Configure Git User for Commit
       - name: Configure Git User for Commit
@@ -49,13 +49,15 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      # Step 9: Add dist folder and commit changes
+      # Step 9: Add dist folder and commit changes if dist has changes
       - name: Add dist folder and commit changes
         run: |
-          git diff dist/
-          git add dist/
-          git commit -m "chore: update dist files" || echo "No changes to commit"
-          git push
+          git diff --exit-code dist || (
+            echo "Changes detected in dist folder"
+            git add dist/
+            git commit -m "chore: update dist files" || echo "No changes to commit"
+            git push
+          )
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
