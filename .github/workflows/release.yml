@@ -44,11 +44,18 @@ jobs:
         run: ls -la dist  # Verify if the build files are generated
 
       # Step 8: Save dist folder as artifact
-      - name: Save dist folder
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist-files
-          path: dist/
+      - name: Configure Git User for Commit
+        run: |
+         git config --global user.name "github-actions[bot]"
+         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push dist files back to the repository
+        run: |
+          git add dist/
+          git commit -m "chore: update dist files"
+          git push
+          env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 9: Run semantic-release
       - name: Run semantic-release
