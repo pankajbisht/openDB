@@ -33,7 +33,7 @@ jobs:
         run: npm install
 
       - name: Create Dev Build
-        run: npm run dev:rollup
+        run: npm run build:rollup
 
       - name: Check Output
         run: ls -la dist  # Verify if the build files are generated
