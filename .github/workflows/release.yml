@@ -3,45 +3,42 @@ name: Pull Request CI Pipeline
 on:
   push:
     branches:
-      - master # Trigger pipeline when pushing to the main branch
-    pull_request:
-      - master # Trigger pipeline on PR to main branch
+      - master  # Run on push to master
+  pull_request:  # Run on any PR to any branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4  # Use latest version
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version-file: .nvmrc # Specifies Node version from .nvmrc
+          node-version-file: .nvmrc  # Use Node.js version from .nvmrc
 
       - name: Install dependencies
         run: npm install # Installs dependencies
 
       - name: Run tests
-        run: npm test
+        run: npm test # Run test cases
 
       - name: Deploy (example step)
         if: success()
-        run: echo "Test Case are Passed"
-
-      - name: Install Dependencies
-        run: npm install
+        run: echo "Test cases passed ✅"
 
       - name: Create Dev Build
         run: npm run build:rollup
 
       - name: Check Output
-        run: ls -la dist  # Verify if the build files are generated
+        run: ls -la dist  # Verify build files exist
 
       - name: Run semantic-release
+        if: github.ref == 'refs/heads/master' && success()  # Only on master branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token for GitHub API access
         run: npx semantic-release
 
       - name: Everything Done
-        run: echo "Done Successfully"
+        run: echo "🎉 Build and Release Process Completed Successfully"
