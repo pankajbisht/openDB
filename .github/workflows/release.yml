@@ -53,7 +53,7 @@ jobs:
       - name: Add dist folder and package-lock.json
         run: |
           git add dist/
-          git add package-lock.json  # Add package-lock.json if you want to commit changes to it
+          git add .  # Add package-lock.json if you want to commit changes to it
           git commit -m "chore: update dist files"
           git push
         env:
