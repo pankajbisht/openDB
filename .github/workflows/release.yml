@@ -52,7 +52,6 @@ jobs:
       # Step 9: Add dist folder and exclude package-lock.json
       - name: Add dist folder and package-lock.json
         run: |
-          git add dist/
           git add .  # Add package-lock.json if you want to commit changes to it
           git commit -m "chore: update dist files"
           git push
