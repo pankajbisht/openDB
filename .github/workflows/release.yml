@@ -54,7 +54,7 @@ jobs:
           git add dist/
           git commit -m "chore: update dist files"
           git push
-          env:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 9: Run semantic-release
