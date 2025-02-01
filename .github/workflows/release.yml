@@ -29,8 +29,14 @@ jobs:
         if: success()
         run: echo "Test Case are Passed"
 
+      - name: Install Dependencies
+        run: npm install
+
       - name: Create Dev Build
-        run: npm run dev:rollup &
+        run: npm run dev:rollup
+
+      - name: Check Output
+        run: ls -la dist  # Verify if the build files are generated
 
       - name: Run semantic-release
         env:
