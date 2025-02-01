@@ -1,0 +1,39 @@
+name: Pull Request CI Pipeline
+
+on:
+  push:
+    branches: 
+      - master # Trigger pipeline when pushing to the main branch
+    pull_request:
+      - master # Trigger pipeline on PR to main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: .nvmrc # Specifies Node version from .nvmrc
+
+      - name: Install dependencies
+        run: npm install # Installs dependencies
+
+      - name: Run tests
+        run: npm test
+    
+      - name: Deploy (example step)
+        if: success() 
+        run: echo "Deploying to production..."
+
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token for GitHub API access
+        run: npx semantic-release
+
+
+
+
