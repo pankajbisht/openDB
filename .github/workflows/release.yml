@@ -3,42 +3,60 @@ name: Pull Request CI Pipeline
 on:
   push:
     branches:
-      - master  # Run on push to master
-  pull_request:  # Run on any PR to any branch
+      - master # Trigger pipeline when pushing to the main branch
+  pull_request:
+    branches:
+      - master # Trigger pipeline on PR to main branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+      # Step 1: Checkout the code
       - name: Checkout code
-        uses: actions/checkout@v4  # Use latest version
+        uses: actions/checkout@v2
 
+      # Step 2: Set up Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2
         with:
-          node-version-file: .nvmrc  # Use Node.js version from .nvmrc
+          node-version-file: .nvmrc  # Specifies Node version from .nvmrc
 
+      # Step 3: Install dependencies
       - name: Install dependencies
-        run: npm install # Installs dependencies
+        run: npm install
 
+      # Step 4: Run tests (if applicable)
       - name: Run tests
-        run: npm test # Run test cases
+        run: npm test
 
-      - name: Deploy (example step)
-        if: success()
-        run: echo "Test cases passed ✅"
-
+      # Step 5: Create Dev Build using Rollup
       - name: Create Dev Build
-        run: npm run build:rollup
+        run: npm run build:rollup  # This runs Rollup to build the project
 
+      # Step 6: Save dist folder for later steps
+      - name: Save dist folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: dist/
+
+      # Step 7: Check Output (for debugging purposes)
       - name: Check Output
-        run: ls -la dist  # Verify build files exist
+        run: ls -la dist  # Verify if the build files are generated
 
+      # Step 8: Run semantic-release
       - name: Run semantic-release
-        if: github.ref == 'refs/heads/master' && success()  # Only on master branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token for GitHub API access
         run: npx semantic-release
 
+      # Step 9: Deploy (if applicable)
+      - name: Deploy (example step)
+        if: success()
+        run: echo "Deployment step after successful pipeline"
+
+      # Step 10: Final message
       - name: Everything Done
         run: echo "🎉 Build and Release Process Completed Successfully"
