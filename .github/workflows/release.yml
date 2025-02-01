@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version-file: .nvmrc  # Uses the version specified in .nvmrc
+          node-version-file: .nvmrc
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -39,9 +39,9 @@ jobs:
       - name: Run Rollup Build
         run: npm run build:rollup
 
-      # Step 7: Verify if the build files are generated
-      - name: Check Output
-        run: ls -la dist  # Verify if the build files are generated
+      # Step 7: Check if dist files exist
+      - name: Check if dist files exist
+        run: ls -la dist
 
       # Step 8: Configure Git User for Commit
       - name: Configure Git User for Commit
@@ -49,23 +49,21 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      # Step 9: Add dist folder and commit changes if dist has changes
+      # Step 9: Add dist folder and commit changes
       - name: Add dist folder and commit changes
         run: |
-          # Check if there are changes in dist folder
-          git diff --exit-code dist || (
-            git add dist/ &&
-            git commit -m "chore: update dist files" &&
-            git push
-          )
+          git diff dist/
+          git add dist/
+          git commit -m "chore: update dist files" || echo "No changes to commit"
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 10: Run semantic-release
       - name: Run semantic-release
+        run: npx semantic-release --debug
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token for GitHub API access
-        run: npx semantic-release
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 11: Final message
       - name: Everything Done
