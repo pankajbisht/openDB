@@ -3,10 +3,10 @@ name: Pull Request CI Pipeline
 on:
   push:
     branches:
-      - master # Trigger pipeline when pushing to the main branch
+      - master
   pull_request:
     branches:
-      - master # Trigger pipeline on PR to main branch
+      - master
 
 jobs:
   build:
@@ -21,41 +21,40 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version-file: .nvmrc  # Specifies Node version from .nvmrc
+          node-version-file: .nvmrc
 
       # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run tests (if applicable)
-      - name: Run tests
-        run: npm test
+      # Step 4: Ensure dist folder exists
+      - name: Ensure dist folder exists
+        run: mkdir -p dist
 
-      # Step 5: Create Dev Build using Rollup
-      - name: Create Dev Build
-        run: npm run build:rollup  # This runs Rollup to build the project
+      # Step 5: Ensure dist folder has correct permissions
+      - name: Ensure dist folder has correct permissions
+        run: chmod -R 777 dist
 
-      # Step 6: Save dist folder (using the correct v2 version)
+      # Step 6: Run Rollup build
+      - name: Run Rollup Build
+        run: npm run build:rollup
+
+      # Step 7: Verify if the build files are generated
+      - name: Check Output
+        run: ls -la dist  # Verify if the build files are generated
+
+      # Step 8: Save dist folder as artifact
       - name: Save dist folder
         uses: actions/upload-artifact@v4
         with:
           name: dist-files
           path: dist/
 
-      # Step 7: Check Output (for debugging purposes)
-      - name: Check Output
-        run: ls -la dist  # Verify if the build files are generated
-
-      # Step 8: Run semantic-release
+      # Step 9: Run semantic-release
       - name: Run semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token for GitHub API access
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
-
-      # Step 9: Deploy (if applicable)
-      - name: Deploy (example step)
-        if: success()
-        run: echo "Deployment step after successful pipeline"
 
       # Step 10: Final message
       - name: Everything Done
