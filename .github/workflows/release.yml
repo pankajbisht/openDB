@@ -37,7 +37,7 @@ jobs:
 
       # Step 6: Save dist folder (using the correct v2 version)
       - name: Save dist folder
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dist-files
           path: dist/
