@@ -29,7 +29,10 @@ function getSeparator() {
   return config$1.separator;
 }
 
+const version = '2.0.1';
+
 var config = {
+  version,
   createNamespace,
   getCurrentNamespace,
   switchNamespace,

@@ -7,7 +7,10 @@ import {
   getSeparator,
 } from './config.js';
 
+import { version } from './version.js';
+
 export default {
+  version,
   createNamespace,
   getCurrentNamespace,
   switchNamespace,

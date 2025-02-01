@@ -59,9 +59,9 @@ jobs:
 
       # Step 9: Run semantic-release
       - name: Run semantic-release
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
 
       # Step 10: Final message
       - name: Everything Done
