@@ -42,3 +42,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token for GitHub API access
         run: npx semantic-release
+
+      - name: Everything Done
+        run: echo "Done Successfully"
