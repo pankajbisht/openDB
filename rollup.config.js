@@ -5,7 +5,7 @@ export default [
     input: 'src/index.js',
     treeshake: false,
     output: monolithConf({
-      file: 'dist/underscore-esm.js',
+      file: 'dist/opendb.esm.js',
       format: 'esm',
     }),
   },

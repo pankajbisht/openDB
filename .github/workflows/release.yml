@@ -2,7 +2,7 @@ name: Pull Request CI Pipeline
 
 on:
   push:
-    branches: 
+    branches:
       - master # Trigger pipeline when pushing to the main branch
     pull_request:
       - master # Trigger pipeline on PR to main branch
@@ -24,16 +24,15 @@ jobs:
 
       - name: Run tests
         run: npm test
-    
+
       - name: Deploy (example step)
-        if: success() 
-        run: echo "Deploying to production..."
+        if: success()
+        run: echo "Test Case are Passed"
+
+      - name: Create Dev Build
+        run: npm run dev:rollup &
 
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token for GitHub API access
         run: npx semantic-release
-
-
-
-
