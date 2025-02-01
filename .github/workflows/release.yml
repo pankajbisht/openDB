@@ -43,11 +43,16 @@ jobs:
       - name: Check Output
         run: ls -la dist  # Verify if the build files are generated
 
-      # Step 8: Save dist folder as artifact
+      # Step 8: Add dist files and check changes
+      - name: Check for dist folder changes
+        run: |
+          git diff --exit-code || echo "Changes detected in dist folder"
+
+      # Step 9: Push dist files back to the repository (only if changes exist)
       - name: Configure Git User for Commit
         run: |
-         git config --global user.name "github-actions[bot]"
-         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Push dist files back to the repository
         run: |
@@ -56,13 +61,14 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ github.event_name == 'push' }}  # Only run if the event is a push
 
-      # Step 9: Run semantic-release
+      # Step 10: Run semantic-release (only on successful commit)
       - name: Run semantic-release
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Step 10: Final message
+      # Step 11: Final message
       - name: Everything Done
         run: echo "🎉 Build and Release Process Completed Successfully"
