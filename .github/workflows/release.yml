@@ -50,14 +50,15 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       # Step 9: Add dist folder and exclude package-lock.json
-      - name: Add dist folder and exclude package-lock.json
+      - name: Add dist folder and package-lock.json
         run: |
           git add dist/
-          git restore --staged package-lock.json  # Ignore changes to package-lock.json
+          git add package-lock.json  # Add package-lock.json if you want to commit changes to it
           git commit -m "chore: update dist files"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
       # Step 10: Run semantic-release
       - name: Run semantic-release
