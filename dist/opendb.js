@@ -17,8 +17,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   switchNamespace: () => (/* binding */ switchNamespace)
 /* harmony export */ });
 var config = {
-  namespace: "app",
-  separator: ".",
+  namespace: 'app',
+  separator: '.',
   trimKeys: true,
   expiry: true
 };
@@ -37,7 +37,7 @@ function get() {
 function setSeparator(separator) {
   config.separator = separator;
 }
-function getSeparator(separator) {
+function getSeparator() {
   return config.separator;
 }
 
@@ -119,7 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function ensureSupport(storage) {
   if (!storage) {
-    throw new Error("Storage is not supported in this environment.");
+    throw new Error('Storage is not supported in this environment.');
   }
   return storage;
 }
@@ -179,6 +179,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ get)
 /* harmony export */ });
 /* harmony import */ var _config_config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/config.js */ "./src/config/config.js");
+/* harmony import */ var _utils_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/index.js */ "./src/utils/index.js");
+
 
 function get(key) {
   var seprator = (0,_config_config_js__WEBPACK_IMPORTED_MODULE_0__.getSeparator)();
@@ -187,11 +189,7 @@ function get(key) {
   if (value === 'null') {
     return null;
   }
-  try {
-    return JSON.parse(value);
-  } catch (e) {
-    return value;
-  }
+  return (0,_utils_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(value);
 }
 
 /***/ }),
@@ -221,7 +219,6 @@ function getFormattedData(key) {
     var completkey = this.key(i);
     var _completkey$split = completkey.split("".concat(seprator), 3),
       _completkey$split2 = _slicedToArray(_completkey$split, 3),
-      namespace = _completkey$split2[0],
       objectkey = _completkey$split2[1],
       currentkey = _completkey$split2[2];
     if (objectkey === key && currentkey) {
@@ -323,8 +320,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ keys)
 /* harmony export */ });
-/* harmony import */ var _key_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./key.js */ "./src/modules/key.js");
-
 function keys() {
   var keys = [];
   for (var index = 0; index < this.storage.length; index++) {
@@ -426,7 +421,7 @@ __webpack_require__.r(__webpack_exports__);
 function setFormattedData(key, obj) {
   var seprator = (0,_config_config_js__WEBPACK_IMPORTED_MODULE_0__.getSeparator)();
   for (var k in obj) {
-    if (obj.hasOwnProperty(k)) {
+    if (k in obj) {
       this.set("".concat(key).concat(seprator).concat(k), obj[k]);
     }
   }
@@ -446,6 +441,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function trim(key) {
   return this.storage.get(key).trim();
+}
+
+/***/ }),
+
+/***/ "./src/utils/index.js":
+/*!****************************!*\
+  !*** ./src/utils/index.js ***!
+  \****************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _parse_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _parse_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parse.js */ "./src/utils/parse.js");
+
+
+/***/ }),
+
+/***/ "./src/utils/parse.js":
+/*!****************************!*\
+  !*** ./src/utils/parse.js ***!
+  \****************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ parse)
+/* harmony export */ });
+function parse(value) {
+  try {
+    return JSON.parse(value);
+  } catch (err) {
+    return value;
+  }
 }
 
 /***/ })

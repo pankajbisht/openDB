@@ -1,21 +1,32 @@
-import db from '../dist/opendb.js';
+import db from "../dist/opendb.js";
 
 (function () {
-    var dom  = document.getElementById("name"),
-        form = document.forms["form"],
-        name = form["name"];
+  var dom = document.getElementById("name"),
+    form = document.forms["form"];
 
-    if (db.local.has("name")) {
-        dom.style.color = "green";
-        dom.previousElementSibling.style.background = "green";
-        dom.textContent = db.local.get("name");
-    }
+  if (db.local.has("name")) {
+    domStylingAfterStore(() => {
+      console.log("Get Data From Store");
+    });
+  }
 
-    form.onsubmit = function () {
-        var val = this["name"].value;
-        dom.textContent = val;
-        db.local.set("name", val);
+  function domStylingAfterStore(callback) {
+    dom.textContent = db.local.get("name");
+    dom.style.color = "green";
+    dom.previousElementSibling.style.background = "green";
 
-        return false;
-    };
-}())
+    callback();
+  }
+
+  form.onsubmit = function () {
+    var val = this["name"].value;
+    dom.textContent = val;
+    db.local.set("name", val);
+
+    domStylingAfterStore(() => {
+      this["name"].value = "";
+    });
+
+    return false;
+  };
+})();

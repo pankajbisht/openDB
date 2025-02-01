@@ -1,1 +1,1 @@
-export { default } from "./storage.js";
+export { default } from './storage.js';

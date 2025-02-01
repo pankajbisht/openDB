@@ -1,29 +1,37 @@
 # OpenDB
 
 ## What is OpenDB?
+
 > A lightweight utility to manage browser storage (localStorage, sessionStorage, and cookies) with advanced features. Easily configure namespaces, key trimming, and data expiry.
 
 ## Core Database Object Method
+
 local - Contain localStorage methods
 session - Contain sessionStorage methods
 
 ## Local Storage
+
 > LocalStorage is a web storage that allows websites to store data persistently on a user's browser.
+
 ```
 db.local.methodname
 ```
 
 ## Session Storage
+
 > SessionStorage is a web storage that stores data for the duration of a page session and is cleared when the browser or tab is closed.
+
 ```
 db.session.methodname
 ```
 
 ## Browser Support
+
 Supports modern browsers including Chrome, Firefox, Safari, and Edge.
 
 ## Demonstrating LocalStorage and SessionStorage with an Example
-``````
+
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,9 +47,10 @@ Supports modern browsers including Chrome, Firefox, Safari, and Edge.
   </script>
 </body>
 </html>
-``````
+```
 
 ## Key Changes from the Old Approach
+
 - Powerful Method: Enhanced functionality.
 - ES6: Modern JavaScript features.
 - Modular: Reusable and maintainable code.
@@ -49,8 +58,8 @@ Supports modern browsers including Chrome, Firefox, Safari, and Edge.
 
 For further details, see the [old-approach](https://github.com/pankajbisht/openDB/tree/v1-opendb) documentation.
 
-
 ## List of Local and Session Storage Methods
+
 ```
 - set(key, value) :-  stores data in local or session storage with a key and value
 

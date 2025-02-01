@@ -1,30 +1,30 @@
 export const config = {
-    namespace: "app",
-    separator: ".",
-    trimKeys: true,
-    expiry: true
+  namespace: 'app',
+  separator: '.',
+  trimKeys: true,
+  expiry: true,
 };
 
 export function createNamespace(namespace) {
-    config.namespace = namespace;
+  config.namespace = namespace;
 }
 
 export function switchNamespace(namespace) {
-    config.namespace = namespace;
+  config.namespace = namespace;
 }
 
 export function getCurrentNamespace() {
-    return config.namespace;
+  return config.namespace;
 }
 
 export function get() {
-    return config;
+  return config;
 }
 
 export function setSeparator(separator) {
-    config.separator = separator;
+  config.separator = separator;
 }
 
-export function getSeparator(separator) {
-    return config.separator;
+export function getSeparator() {
+  return config.separator;
 }

@@ -1,3 +1,3 @@
 export default function clear() {
-    return this.storage.clear();
+  return this.storage.clear();
 }

@@ -1,11 +1,11 @@
 import { getSeparator } from '../config/config.js';
 
 export default function setFormattedData(key, obj) {
-    const seprator = getSeparator();
+  const seprator = getSeparator();
 
-    for (let k in obj) {
-        if (obj.hasOwnProperty(k)) {
-            this.set(`${key}${seprator}${k}`, obj[k]);
-        }
+  for (let k in obj) {
+    if (k in obj) {
+      this.set(`${key}${seprator}${k}`, obj[k]);
     }
+  }
 }

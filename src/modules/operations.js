@@ -1,11 +1,11 @@
-import storageMethods from "./index.js";
+import storageMethods from './index.js';
 
 export function storageoperations(storage) {
-    return {
-        storage,
-        get count() {
-            return storage.length;
-        },
-        ...storageMethods
-    }
+  return {
+    storage,
+    get count() {
+      return storage.length;
+    },
+    ...storageMethods,
+  };
 }

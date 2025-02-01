@@ -1,11 +1,9 @@
-import key from "./key.js"
-
 export default function keys() {
-    const keys = []
+  const keys = [];
 
-    for (let index = 0; index < this.storage.length; index++) {
-        keys.push(this.storage.key(index));
-    }
+  for (let index = 0; index < this.storage.length; index++) {
+    keys.push(this.storage.key(index));
+  }
 
-    return keys;
+  return keys;
 }
