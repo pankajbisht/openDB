@@ -55,16 +55,37 @@ function parse(value) {
   }
 }
 
+// Is a given variable undefined?
+function isUndefined(obj) {
+  return obj === void 0;
+}
+
+// Is a given value equal to null?
+function isNull(obj) {
+  return obj === null || obj === 'null';
+}
+
+var util = {
+  parse,
+  isUndefined,
+  isNull,
+};
+
+function isInvalidArg(key) {
+  return isUndefined(key) || isNull(key);
+}
+
 function get(key) {
+  if (isInvalidArg(key)) return null;
   const seprator = getSeparator();
   const namespcaekey = `${getCurrentNamespace()}${seprator}${key}`;
   const value = this.storage.getItem(namespcaekey);
 
-  if (value === 'null') {
+  if (util.isNull(value)) {
     return null;
   }
 
-  return parse(value);
+  return util.parse(value);
 }
 
 function set(key, value) {
