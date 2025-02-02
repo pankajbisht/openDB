@@ -108,6 +108,12 @@ describe('OpenDB Unit Test Case', () => {
         const result = db.local.has('testkey');
         expect(result).toBe(true);
       });
+
+      test('should return true if number key is present', () => {
+        db.local.set(123, 'testvalue');
+        const result = db.local.has(123);
+        expect(result).toBe(true);
+      });
     });
   });
 });
