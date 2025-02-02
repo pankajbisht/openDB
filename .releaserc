@@ -1,8 +1,5 @@
 {
-  "branches": [
-    "master",
-    { "name": "alpha", "prerelease": "alpha" }
-  ],
+  "branches": ["master"],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -13,8 +10,9 @@
         "assets": ["CHANGELOG.md", "package.json"],
         "message": "chore(build): 🔖 v${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
-    ],
-    "@semantic-release/npm",
-    "@semantic-release/github"
-  ]
+    ]
+  ],
+  "verifyConditions": [],
+  "prepare": [],
+  "publish": false
 }
