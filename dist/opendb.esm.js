@@ -29,7 +29,7 @@ function getSeparator() {
   return config$1.separator;
 }
 
-const version = '2.0.0-alpha.0';
+const version = 'v1.0.0';
 
 var config = {
   version,
