@@ -16,6 +16,8 @@ export default [
         console: 'readonly',
         fetch: 'readonly',
         navigator: 'readonly',
+        setTimeout: 'readonly',
+        Blob: 'readonly',
 
         describe: 'readonly',
         test: 'readonly',

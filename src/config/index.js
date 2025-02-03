@@ -5,6 +5,7 @@ import {
   switchNamespace,
   setSeparator,
   getSeparator,
+  generateKey,
 } from './config.js';
 
 import { version } from './version.js';
@@ -17,4 +18,5 @@ export default {
   get,
   setSeparator,
   getSeparator,
+  generateKey,
 };

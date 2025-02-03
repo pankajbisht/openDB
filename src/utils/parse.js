@@ -1,7 +1,7 @@
 export default function parse(value) {
   try {
     return JSON.parse(value);
-  } catch (err) {
+  } catch {
     return value;
   }
 }

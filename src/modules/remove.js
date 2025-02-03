@@ -1,8 +1,7 @@
-import { getCurrentNamespace, getSeparator } from '../config/config.js';
+import config from '../config/index.js';
 
 export default function remove(key) {
-  const seprator = getSeparator();
-  const namespcaekey = `${getCurrentNamespace()}${seprator}${key}`;
+  const namespacedKey = config.generateKey(key);
 
-  return this.storage.removeItem(namespcaekey);
+  return this.storage.removeItem(namespacedKey);
 }

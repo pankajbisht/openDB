@@ -28,3 +28,7 @@ export function setSeparator(separator) {
 export function getSeparator() {
   return config.separator;
 }
+
+export function generateKey(key) {
+  return `${config.namespace}${config.separator}${key}`;
+}

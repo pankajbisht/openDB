@@ -1,14 +1,15 @@
-import { getCurrentNamespace, getSeparator } from '../config/config.js';
+import config from '../config/index.js';
+import { isInvalidArg } from '../errors/isInvalidArg.js';
 
-export default function set(key, value) {
-  const seprator = getSeparator();
-  const namespcaekey = `${getCurrentNamespace()}${seprator}${key}`;
+export default function set(key, value, options = {}) {
+  if (isInvalidArg(key)) return null;
+  const namespacedKey = config.generateKey(key);
+  const { expire } = options;
 
-  if (value === null || value === undefined) {
-    this.storage.setItem(namespcaekey, 'null');
-  } else if (typeof value === 'object') {
-    this.storage.setItem(namespcaekey, JSON.stringify(value));
-  } else {
-    this.storage.setItem(namespcaekey, String(value));
-  }
+  let items = {
+    value,
+    ...(expire ? { expire: Date.now() + expire } : {}),
+  };
+
+  this.storage.setItem(namespacedKey, JSON.stringify(items));
 }

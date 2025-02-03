@@ -1,16 +1,26 @@
 import util from '../utils/index.js';
-import { getCurrentNamespace, getSeparator } from '../config/config.js';
 import { isInvalidArg } from '../errors/isInvalidArg.js';
+import config from '../config/index.js';
 
-export default function get(key) {
+export default function get(key, defaultValue = null) {
   if (isInvalidArg(key)) return null;
-  const seprator = getSeparator();
-  const namespcaekey = `${getCurrentNamespace()}${seprator}${key}`;
-  const value = this.storage.getItem(namespcaekey);
+  const namespacedKey = config.generateKey(key);
+  const value = this.storage.getItem(namespacedKey);
 
   if (util.isNull(value)) {
     return null;
   }
 
-  return util.parse(value);
+  try {
+    let parsedData = util.parse(value);
+
+    if (parsedData.expire && Date.now() > parsedData.expire) {
+      this.remove(key);
+      return defaultValue;
+    }
+
+    return parsedData.value;
+  } catch {
+    return defaultValue;
+  }
 }

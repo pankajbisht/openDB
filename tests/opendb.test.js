@@ -41,7 +41,6 @@ describe('OpenDB Unit Test Case', () => {
   });
 
   describe('Storage Module', () => {
-
     describe('get Method', () => {
       beforeEach(() => {
         db.local.clear();
