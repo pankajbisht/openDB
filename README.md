@@ -63,7 +63,7 @@ For further details, see the [old-approach](https://github.com/pankajbisht/openD
 ```
 - set(key, value) :-  stores data in local or session storage with a key and value
 
-- get(key) :- retrieve data from local or session storage by key.
+- get(key, defaultValue) :- retrieve data from local or session storage by key.
 
 - has(key) :- check whether a specified key exists in local or session storage
 
