@@ -1,8 +1,8 @@
 {
   "name": "opendb",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A lightweight utility to manage browser storage (localStorage, sessionStorage, and cookies) with advanced features. Easily configure namespaces, key trimming, and data expiry.",
-  "main": "index.js",
+  "main": "src/index.js",
   "type": "module",
   "publishConfig": {
     "access": "public"
