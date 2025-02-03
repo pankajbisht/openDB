@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/pankajbisht/openDB/compare/v1.1.1...v1.1.2) (2025-02-03)
+
+
+### Bug Fixes
+
+* **version:** update version ([b5f5300](https://github.com/pankajbisht/openDB/commit/b5f5300a4d78ca770ea3abaecab5c26e83367ef0))
+
 ## [1.1.1](https://github.com/pankajbisht/openDB/compare/v1.1.0...v1.1.1) (2025-02-03)
 
 
