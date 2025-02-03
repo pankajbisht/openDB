@@ -29,6 +29,10 @@ function getSeparator() {
   return config$1.separator;
 }
 
+function generateKey(key) {
+  return `${config$1.namespace}${config$1.separator}${key}`;
+}
+
 const version = '1.0.0';
 
 var config = {
@@ -39,6 +43,7 @@ var config = {
   get: get$1,
   setSeparator,
   getSeparator,
+  generateKey,
 };
 
 function from(namespace) {
@@ -50,7 +55,7 @@ function from(namespace) {
 function parse(value) {
   try {
     return JSON.parse(value);
-  } catch (err) {
+  } catch {
     return value;
   }
 }
@@ -75,30 +80,40 @@ function isInvalidArg(key) {
   return isUndefined(key) || isNull(key);
 }
 
-function get(key) {
+function get(key, defaultValue = null) {
   if (isInvalidArg(key)) return null;
-  const seprator = getSeparator();
-  const namespcaekey = `${getCurrentNamespace()}${seprator}${key}`;
-  const value = this.storage.getItem(namespcaekey);
+  const namespacedKey = config.generateKey(key);
+  const value = this.storage.getItem(namespacedKey);
 
   if (util.isNull(value)) {
     return null;
   }
 
-  return util.parse(value);
+  try {
+    let parsedData = util.parse(value);
+
+    if (parsedData.expire && Date.now() > parsedData.expire) {
+      this.remove(key);
+      return defaultValue;
+    }
+
+    return parsedData.value;
+  } catch {
+    return defaultValue;
+  }
 }
 
-function set(key, value) {
-  const seprator = getSeparator();
-  const namespcaekey = `${getCurrentNamespace()}${seprator}${key}`;
+function set(key, value, options = {}) {
+  if (isInvalidArg(key)) return null;
+  const namespacedKey = config.generateKey(key);
+  const { expire } = options;
 
-  if (value === null || value === undefined) {
-    this.storage.setItem(namespcaekey, 'null');
-  } else if (typeof value === 'object') {
-    this.storage.setItem(namespcaekey, JSON.stringify(value));
-  } else {
-    this.storage.setItem(namespcaekey, String(value));
-  }
+  let items = {
+    value,
+    ...(expire ? { expire: Date.now() + expire } : {}),
+  };
+
+  this.storage.setItem(namespacedKey, JSON.stringify(items));
 }
 
 function has(key) {
@@ -106,10 +121,9 @@ function has(key) {
 }
 
 function remove(key) {
-  const seprator = getSeparator();
-  const namespcaekey = `${getCurrentNamespace()}${seprator}${key}`;
+  const namespacedKey = config.generateKey(key);
 
-  return this.storage.removeItem(namespcaekey);
+  return this.storage.removeItem(namespacedKey);
 }
 
 function clear() {
