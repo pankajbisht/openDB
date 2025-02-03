@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/pankajbisht/openDB/compare/v1.1.2...v1.1.3) (2025-02-03)
+
+
+### Bug Fixes
+
+* **path:** update package.json ([7c4adfe](https://github.com/pankajbisht/openDB/commit/7c4adfe0a1c65fc0c278dcf676c8f07f8063a42c))
+
 ## [1.1.2](https://github.com/pankajbisht/openDB/compare/v1.1.1...v1.1.2) (2025-02-03)
 
 
