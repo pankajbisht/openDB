@@ -68,4 +68,6 @@ For further details, see the [old-approach](https://github.com/pankajbisht/openD
 - has(key) :- check whether a specified key exists in local or session storage
 
 - remove(key) :- remove a specific item from local or session storage
+
+- clear() :- Empty the entire storage.
 ```
