@@ -1,7 +1,7 @@
-import db from "../src/index.js"
+import db from "../dist/opendb.esm.js"
 
 db.local.set('name', 'opendb');
-console.log(db.local.get('name'))
+console.log(db.local.get('name'));
 
 (async() => {
     db.local.set('expiringKey', 'value', { expire: 500 });
