@@ -7,6 +7,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "src",
+    "dist/opendb.esm.js",
+    "README.md"
+  ],
   "scripts": {
     "clean": "rm -rf dist",
     "build:dev": "webpack --config webpack.dev.js",
@@ -23,17 +28,37 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pankajbisht/openDB.git"
+    "url": "git+https://github.com/pankajbisht/opendb-store.git"
   },
   "keywords": [
-    "opendb"
+    "opendb-store",
+    "opendb",
+    "store",
+    "localStorage",
+    "sessionStorage",
+    "state-management",
+    "data-storage",
+    "browser-storage",
+    "key-value-store",
+    "lightweight-storage",
+    "js-storage",
+    "persistent-storage",
+    "storage-utility",
+    "web-storage",
+    "cache",
+    "frontend-storage",
+    "react-storage",
+    "vanilla-js-storage",
+    "typescript-storage",
+    "localstore",
+    "sessionstore"
   ],
   "author": "Pankaj Bisht",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pankajbisht/openDB/issues"
+    "url": "https://github.com/pankajbisht/opendb-store/issues"
   },
-  "homepage": "https://github.com/pankajbisht/openDB#readme",
+  "homepage": "https://github.com/pankajbisht/opendb-store#readme",
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.25.9",
     "@babel/preset-env": "^7.26.7",

@@ -5,7 +5,7 @@ jest.mock('../src/errors/index.js', () => ({
   isInvalidArg: jest.fn().mockReturnValue(undefined),
 }));
 
-describe('OpenDB Unit Test Case', () => {
+describe('opendb-store Unit Test Case', () => {
   describe('Config Module', () => {
     test('getCurrentNamespace should return the default namespace', () => {
       expect(db.config.getCurrentNamespace()).toBe('app');

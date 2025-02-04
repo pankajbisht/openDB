@@ -1,6 +1,4 @@
-# OpenDB
-
-## What is OpenDB?
+## What is opendb-store?
 
 > A lightweight utility to manage browser storage (localStorage, sessionStorage, and cookies) with advanced features. Easily configure namespaces, key trimming, and data expiry.
 
@@ -35,13 +33,13 @@ Supports modern browsers including Chrome, Firefox, Safari, and Edge.
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>OpenDB</title>
+   <title>opendb store</title>
 </head>
 <body>
   <script src="opendb.js"></script>
   <script>
 	(function () {
-	  db.local.set('name', 'openDB');
+	  db.local.set('name', 'opendb store');
 	  console.log(db.local.get('name'));
 	}());
   </script>
