@@ -8,8 +8,9 @@ local - Contain localStorage methods
 session - Contain sessionStorage methods
 
 ## Installation Guide
-
-> npm i opendb-store
+```
+npm i opendb-store
+```
 
 ## Import opendb-store in Your Project
 ```
