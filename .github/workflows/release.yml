@@ -35,9 +35,9 @@ jobs:
       - name: Verify dist folder before build
         run: ls -la dist || echo "dist folder does not exist"
 
-      # Step 6: Run Rollup build
-      - name: Run Rollup Build
-        run: npm run build:rollup
+      # Step 6: Run build
+      - name: Run Build
+        run: npm run build
 
       # Step 7: Verify if build files are generated
       - name: Verify dist folder after build
