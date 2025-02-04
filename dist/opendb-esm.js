@@ -33,7 +33,7 @@ function generateKey(key) {
   return `${config$1.namespace}${config$1.separator}${key}`;
 }
 
-const version = '1.0.2';
+const version = '1.0.3';
 
 var config = {
   version,
