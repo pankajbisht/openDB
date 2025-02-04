@@ -7,6 +7,18 @@
 local - Contain localStorage methods
 session - Contain sessionStorage methods
 
+## Installation Guide
+
+> npm i opendb-store
+
+## Import opendb-store in Your Project
+```
+import db from 'opendb-store'
+
+db.local.set('libname', 'OpenDB Store');
+console.log('Welcome to: ', db.local.get('libname'));
+```
+
 ## Local Storage
 
 > LocalStorage is a web storage that allows websites to store data persistently on a user's browser.
