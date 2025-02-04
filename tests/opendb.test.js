@@ -1,4 +1,4 @@
-import db from '../src/index.js';
+import db from '../dist/opendb-esm.js';
 import errorFunctions from '../src/errors/index.js';
 
 jest.mock('../src/errors/index.js', () => ({

@@ -5,8 +5,6 @@ import prettierConfig from 'eslint-config-prettier';
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
   {
-    files: ['src/**/*.{js,jsx}', 'public/**/*.{js,jsx}', 'tests/**/*.{js,jsx}'],
-    ignores: ['dist/**', 'node_modules/**'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -31,8 +29,10 @@ export default [
       prettier: prettierPlugin,
     },
     rules: {
-      'prettier/prettier': ['error', { singleQuote: true }], // ⬅️ Explicitly enforce single quotes in Prettier
-      quotes: ['error', 'single', { avoidEscape: true }], // ⬅️ Enforce single quotes in ESLint
+      'prettier/prettier': 'error',
+      'no-console': 'warn',
+      'eqeqeq': 'error',
+      'no-unused-vars': 'warn',
     },
   },
   pluginJs.configs.recommended,

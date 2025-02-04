@@ -1,6 +1,6 @@
-import db from "../dist/opendb.esm.js"
+import db from "../dist/opendb-esm.min.js"
 
-db.local.set('name', 'opendb');
+db.local.set('name', 'opendb-store');
 console.log(db.local.get('name'));
 
 (async() => {

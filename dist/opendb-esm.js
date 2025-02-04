@@ -33,7 +33,7 @@ function generateKey(key) {
   return `${config$1.namespace}${config$1.separator}${key}`;
 }
 
-const version = '1.0.0';
+const version = '1.0.2';
 
 var config = {
   version,
@@ -205,13 +205,6 @@ function ensureSupport(storage) {
   return storage;
 }
 
-function working(storage) {
-  if (!storage) {
-    return false;
-  }
-  return true;
-}
-
 const db = {
   config,
   local: storageoperations(ensureSupport(window.localStorage)),
@@ -219,4 +212,4 @@ const db = {
 };
 
 export { db as default };
-//# sourceMappingURL=opendb.esm.js.map
+//# sourceMappingURL=opendb-esm.js.map

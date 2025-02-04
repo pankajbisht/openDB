@@ -4,10 +4,3 @@ export default function ensureSupport(storage) {
   }
   return storage;
 }
-
-export function working(storage) {
-  if (!storage) {
-    return false;
-  }
-  return true;
-}

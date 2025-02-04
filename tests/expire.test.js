@@ -1,4 +1,4 @@
-import db from '../src/index.js';
+import db from '../dist/opendb-esm.js';
 
 describe('Expiration Handling', () => {
   beforeEach(() => {
