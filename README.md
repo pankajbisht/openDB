@@ -97,7 +97,7 @@ console.log('Welcome to: ', db.local.get('libname')); // OpenDB Store
 // Get Object Value
 console.log('Object: ', db.local.get('object'));
 // Or
-const { name, version } = db.local.get('object', ['name', 'version']);
+const { name, version } = db.local.get('object');
 console.log(name, version);
 
 // Get Array Value
