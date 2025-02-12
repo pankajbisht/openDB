@@ -8,7 +8,7 @@ export default function get(key, defaultValue = null) {
   const value = this.storage.getItem(namespacedKey);
 
   if (util.isNull(value)) {
-    return null;
+    return defaultValue;
   }
 
   try {

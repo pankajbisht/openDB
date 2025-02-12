@@ -103,11 +103,14 @@ console.log(name, version);
 // Get Array Value
 console.log('Array: ', db.local.get('array'));
 
+// Get defaultValue
+db.local.get('missingKey', {}); // {} by default it will null
+
+console.log('Before(2 sec) expiringKey', db.local.get('expiringKey'))
 
 (async () => {
     await new Promise((resolve) => setTimeout(resolve, 2 * 1000));
-    const result = db.local.get('expiringKey');
-    console.log("The result is:", result); // null
+    console.log('After(2 sec) expiringKey', db.local.get('expiringKey')); // will get default value
 })();
 
 ```
@@ -137,5 +140,5 @@ Empty the entire storage.
 ```javascript
 
 // Clears all data from local storage
-db.local.clear()
+db.local.clear();
 ```
