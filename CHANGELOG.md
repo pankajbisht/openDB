@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/pankajbisht/opendb-store/compare/v1.1.1...v1.1.2) (2025-02-12)
+
+
+### Bug Fixes
+
+* **get:** update default value result ([fdea4b1](https://github.com/pankajbisht/opendb-store/commit/fdea4b134f7baf3e10ca3ee4c34ea900e5c35686))
+
 ## [1.1.1](https://github.com/pankajbisht/opendb-store/compare/v1.1.0...v1.1.1) (2025-02-04)
 
 
