@@ -33,7 +33,7 @@ function generateKey(key) {
   return `${config$1.namespace}${config$1.separator}${key}`;
 }
 
-const version = '1.0.3';
+const version = '1.0.4';
 
 var config = {
   version,
@@ -86,7 +86,7 @@ function get(key, defaultValue = null) {
   const value = this.storage.getItem(namespacedKey);
 
   if (util.isNull(value)) {
-    return null;
+    return defaultValue;
   }
 
   try {
