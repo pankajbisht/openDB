@@ -4,8 +4,9 @@
 
 ## Core Database Object Method
 
-local - Contain localStorage methods
-session - Contain sessionStorage methods
+> local - Contain localStorage methods
+
+> session - Contain sessionStorage methods
 
 ## Installation Guide
 ```
@@ -79,13 +80,10 @@ Example:
 db.local.set('libname', 'OpenDB Store'); // Set simple value
 db.local.set('object', { name: 'OpenDB Store', version: 'x.y.z' }); // Set Object Value
 db.local.set('array', ['OpenDB Store', 'x.y.z']); // Set Array Value
-db.local.set('expire', 'It will expire', { expire: 1 * 1000 }); // Set simple value expire after 1 second
+db.local.set('expiringKey', 'It will expire', { expire: 1 * 1000 }); // Set simple value expire after 1 second
 
 // for session storage
-db.session.set('libname', 'OpenDB Store');
-db.session.set('object', { name: 'OpenDB Store', version: 'x.y.z' });
-db.session.set('array', ['OpenDB Store', 'x.y.z']);
-db.session.set('expire', 'It will expire', { expire: 1 * 1000 });
+db.session.set('libname', 'OpenDB Store'); // Set simple value inside session storage
 ```
 
 ### get(key: string, defaultValue: any): any
@@ -104,6 +102,14 @@ console.log(name, version);
 
 // Get Array Value
 console.log('Array: ', db.local.get('array'));
+
+
+(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 2 * 1000));
+    const result = db.local.get('expiringKey');
+    console.log("The result is:", result); // null
+})();
+
 ```
 
 ### has(key: string): boolean
@@ -111,11 +117,9 @@ check whether a specified key exists in local or session storage
 
 ```javascript
 
-// Check Simple Value
-console.log('Welcome to: ', db.local.has('libname')); // true
-console.log('Object: ', db.local.has('object')); // true
-console.log('Array: ', db.local.get('array')); // true
-console.log('Missing Key: ', db.local.has('missingkey')); // true
+// Checks if a key exists in local storage.
+console.log(db.local.has('libname')); // true
+console.log(db.local.has('missingkey')); // false
 ```
 
 ### remove(key: string): void
@@ -123,10 +127,8 @@ remove a specific item from local or session storage
 
 ```javascript
 
-// Check Simple Value
-console.log('Welcome to: ', db.local.remove('libname'));
-console.log('Object: ', db.local.remove('object'));
-console.log('Array: ', db.local.remove('array'));
+// Removes a value from storage.
+db.local.remove('libname');
 ```
 
 ### clear(): void
@@ -134,6 +136,6 @@ Empty the entire storage.
 
 ```javascript
 
-// Clear all keys
-console.log(db.local.clear()); // undefined
+// Clears all data from local storage
+db.local.clear()
 ```
