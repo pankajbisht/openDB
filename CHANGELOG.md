@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/pankajbisht/opendb-store/compare/v1.1.2...v1.2.0) (2025-02-13)
+
+
+### Features
+
+* **UMD:** support for umd ([0369eea](https://github.com/pankajbisht/opendb-store/commit/0369eea126721f7662f2ef4fcbdc5ef8c2f1c266))
+
 ## [1.1.2](https://github.com/pankajbisht/opendb-store/compare/v1.1.1...v1.1.2) (2025-02-12)
 
 
