@@ -9,4 +9,17 @@ export default [
       format: 'esm',
     }),
   },
+  {
+    input: 'src/index.js',
+    treeshake: false,
+    output: monolithConf({
+      file: 'dist/opendb-umd.js',
+      format: 'umd',
+      name: 'db',
+      amd: {
+        id: 'db',
+      },
+      noConflict: true,
+    }),
+  },
 ];

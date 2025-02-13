@@ -23,6 +23,10 @@ export default [
         beforeEach: 'readonly',
         afterEach: 'readonly',
         jest: 'readonly',
+
+        module: 'readable',
+        define: 'readable',
+        self: 'readable',
       },
     },
     plugins: {
