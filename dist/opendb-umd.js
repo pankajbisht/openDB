@@ -61,6 +61,13 @@
     }
   }
 
+  /**
+   * Parses the given value.
+   *
+   * @param value - The value to parse.
+   * @returns The parsed result.
+   */
+
   function parse(value) {
     try {
       return JSON.parse(value);
@@ -69,12 +76,24 @@
     }
   }
 
-  // Is a given variable undefined?
+  /**
+   * Checks if the given value is undefined.
+   *
+   * @param obj - The value to check.
+   * @returns True if the value is undefined, otherwise false.
+   */
+
   function isUndefined(obj) {
     return obj === void 0;
   }
 
-  // Is a given value equal to null?
+  /**
+   * Checks if the given value is null.
+   *
+   * @param obj - The value to check.
+   * @returns True if the value is null, otherwise false.
+   */
+
   function isNull(obj) {
     return obj === null || obj === 'null';
   }
@@ -88,6 +107,17 @@
   function isInvalidArg(key) {
     return isUndefined(key) || isNull(key);
   }
+
+  /**
+   * Retrieves data from local or session storage by key. Returns defaultValue if the key does not exist.
+   *
+   * If the key does not exist or the stored item has expired, returns the defaultValue.
+   * If the stored value was serialized, it is parsed back to its original type.
+   *
+   * @param {string} key - The key to retrieve from localStorage.
+   * @param {any} defaultValue - The value to return if the key is not found or is expired.
+   * @returns {any} The retrieved value (parsed if needed) or the defaultValue.
+   */
 
   function get(key, defaultValue = null) {
     if (isInvalidArg(key)) return null;
@@ -112,6 +142,18 @@
     }
   }
 
+  /**
+   * Stores data in local or session storage with a key and value.
+   *
+   * The value will be stored as a JSON string by default. You can customize behavior using the options object.
+   *
+   * @param {string} key - The key under which to store the value.
+   * @param {any} value - The value to store. It can be any type.
+   * @param {Object} [options={}] - Optional settings for storing the value.
+   * @param {number} [options.expire] - Optional expiration time in milliseconds.
+   * @returns {void}
+   */
+
   function set(key, value, options = {}) {
     if (isInvalidArg(key)) return null;
     const namespacedKey = config.generateKey(key);
@@ -125,15 +167,38 @@
     this.storage.setItem(namespacedKey, JSON.stringify(items));
   }
 
+  /**
+   * Check whether a specified key exists in local or session storage
+   *
+   * @param {string} key - The key to check in local or session storage.
+   * @returns {boolean} True if the key exists, false otherwise.
+   */
+
   function has(key) {
     return !!this.get(key);
   }
 
-  function remove(key) {
-    const namespacedKey = config.generateKey(key);
+  /**
+   * Remove a specific item from local or session storage.
+   * @param {string} key - The key of the item to remove.
+   * @returns {any | null} The removed item.
+   */
 
-    return this.storage.removeItem(namespacedKey);
+  function remove(key) {
+    const deleteValue = this.get(key);
+    const namespacedKey = config.generateKey(key);
+    this.storage.removeItem(namespacedKey);
+
+    return deleteValue;
   }
+
+  /**
+   * Empty the entire local or session storage.
+   *
+   * This function removes all keys and values stored in local or session storage.
+   *
+   * @returns {void}
+   */
 
   function clear() {
     return this.storage.clear();
@@ -152,6 +217,13 @@
 
     return keys;
   }
+
+  /**
+   * Trims whitespace from both ends of the given string.
+   *
+   * @param key - The string to trim.
+   * @returns The trimmed string.
+   */
 
   function trim(key) {
     return this.storage.get(key).trim();
