@@ -50,7 +50,7 @@ Supports modern browsers including Chrome, Firefox, Safari, and Edge.
    <title>opendb store</title>
 </head>
 <body>
-  <script src="opendb.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/opendb-store@1.1.0/dist/opendb-umd.min.js"></script>
   <script>
 	(function () {
 	  db.local.set('name', 'opendb store');
@@ -125,7 +125,7 @@ console.log(db.local.has('libname')); // true
 console.log(db.local.has('missingkey')); // false
 ```
 
-### remove(key: string): void
+### remove(key: string): any | null
 remove a specific item from local or session storage
 
 ```javascript

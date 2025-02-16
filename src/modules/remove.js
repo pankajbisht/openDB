@@ -1,7 +1,15 @@
 import config from '../config/index.js';
 
-export default function remove(key) {
-  const namespacedKey = config.generateKey(key);
+/**
+ * Remove a specific item from local or session storage.
+ * @param {string} key - The key of the item to remove.
+ * @returns {any | null} The removed item.
+ */
 
-  return this.storage.removeItem(namespacedKey);
+export default function remove(key) {
+  const deleteValue = this.get(key);
+  const namespacedKey = config.generateKey(key);
+  this.storage.removeItem(namespacedKey);
+
+  return deleteValue;
 }

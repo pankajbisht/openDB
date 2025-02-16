@@ -35,6 +35,7 @@
     "minify-esm": "npx terser dist/opendb-esm.js -o dist/opendb-esm.min.js --compress --mangle",
     "build-umd": "npm run minify-umd",
     "build-esm": "npm run minify-esm",
+    "build:types": "npm run module-package-json && tsc",
     "build": "npm run bundle && npm run build-esm && npm run build-umd",
     "semantic-release": "semantic-release",
     "prepublishOnly": "npm run build"
@@ -73,6 +74,7 @@
   },
   "homepage": "https://github.com/pankajbisht/opendb-store#readme",
   "devDependencies": {
+    "@babel/parser": "^7.26.9",
     "@babel/plugin-transform-runtime": "^7.25.9",
     "@babel/preset-env": "^7.26.7",
     "@babel/runtime": "^7.26.7",
@@ -99,6 +101,7 @@
     "semantic-release": "^24.2.1",
     "terser": "^5.37.0",
     "terser-webpack-plugin": "^5.3.11",
+    "typescript": "^5.7.3",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1",
     "webpack-merge": "^6.0.1"
